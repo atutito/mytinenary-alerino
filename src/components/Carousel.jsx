@@ -1,42 +1,71 @@
+import "/node_modules/bootstrap/dist/js/bootstrap.min.js"
+import "/node_modules/bootstrap/dist/css/bootstrap.min.css"
+import Card from "./Card";
+
 let data = [
-    {id: 'america1', city: "Cancun", photo: "/img/america/cancun.jpg"},
-    {id: 'america2', city: "New York", photo: "/img/america/newyork.jpg"},
-    {id: 'america3', city: "Rio de Janeiro", photo: "/img/america/rioDeJaneiro.jpg"},
-    {id: 'america4', city: "Ushuaia", photo: "/img/america/ushuaia.jpg"},
-    {id: 'asia1' , city: "Bangkok", photo: "/img/asia/bangkok.jpg"},
-    {id: 'asia2' , city: "Pekin", photo: "/img/asia/pekin.jpg"},
-    {id: 'asia3' , city: "Singapur", photo: "/img/asia/singapur.jpg"},
-    {id: 'asia4' , city: "Tokyo", photo: "/img/asia/tokio.jpg"},
-    {id: 'europe1' , city: "Ibiza", photo: "/img/europe/ibiza.jpg"},
-    {id: 'europe2' , city: "London", photo: "/img/europe/london.jpg"},
-    {id: 'europe3' , city: "Paris", photo: "/img/europe/paris.jpg"},
-    {id: 'europe4' , city: "Roma", photo: "/img/europe/roma.jpg"},
-    {id: 'oceania1' , city: "Majuro", photo: "/img/oceania/majuro.jpg"},
-    {id: 'oceania2' , city: "Sidney", photo: "/img/oceania/sidney.jpg"},
-    {id: 'oceania3' , city: "Suva", photo: "/img/oceania/suva.jpg"},
-    {id: 'oceania4' , city: "Wellington", photo: "/img/oceania/wellington.jpg"}
-]
+  { id: "america1", city: "Cancun", photo: "/img/america/cancun.jpg" },
+  { id: "america2", city: "New York", photo: "/img/america/newyork.jpg" },
+  { id: "america3", city: "Rio de Janeiro", photo: "/img/america/rioDeJaneiro.jpg" },
+  { id: "america4", city: "Ushuaia", photo: "/img/america/ushuaia.jpg" },
+  { id: "asia1", city: "Bangkok", photo: "/img/asia/bangkok.jpg" },
+  { id: "asia2", city: "Pekin", photo: "/img/asia/pekin.jpg" },
+  { id: "asia3", city: "Singapur", photo: "/img/asia/singapur.jpg" },
+  { id: "asia4", city: "Tokyo", photo: "/img/asia/tokio.jpg" },
+  { id: "europe1", city: "Ibiza", photo: "/img/europe/ibiza.jpg" },
+  { id: "europe2", city: "London", photo: "/img/europe/london.jpg" },
+  { id: "europe3", city: "Paris", photo: "/img/europe/paris.jpg" },
+  { id: "europe4", city: "Roma", photo: "/img/europe/roma.jpg" },
+  { id: "oceania1", city: "Majuro", photo: "/img/oceania/majuro.jpg" },
+  { id: "oceania2", city: "Sidney", photo: "/img/oceania/sidney.jpg" },
+  { id: "oceania3", city: "Suva", photo: "/img/oceania/suva.jpg" },
+  { id: "oceania4", city: "Wellington", photo: "/img/oceania/wellington.jpg" },
+];
+
+
 export default function Carousel() {
   return (
-            <div className="w-2/5 flex flex-col p-2 m-2">
-                <img className='rounded' src={data[0].photo} alt={data[0].city} />
-                <div className="absolute text-2xl px-2 text-white font-bold">{data[0].city}</div>
-                <div className="absolute flex content-center text-xs font-thin text-center pt-8 ps-2 text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.0} stroke="currentColor" className=" w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                    </svg>Mexico</div>
-                    <div className="absolute text-2xl mt-8 pt-4 ps-2 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.0} stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                        </svg>
-                    </div>
-                    <div className="absolute text-2xl mt-8 pt-4 ps-2 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </div>
+    <div className="w-4/5 flex flex-col p-2 m-2">
+      <div id="hero-carousel" className="carousel slide" data-bs-ride="carousel">
+        <ol className="carousel-indicators">
+          <li data-bs-target="#hero-carousel" data-bs-slide-to="0" className="active"></li>
+          <li data-bs-target="#hero-carousel" data-bs-slide-to="1"></li>
+          <li data-bs-target="#hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div className="carousel-inner">
+          <div className="carousel-item active c-item">
+          <div className='flex flex-wrap justify-center mt-5'>
+            {data.slice(0,4).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+          </div>
+          <div className="carousel-caption d-none d-md-block font-thin text-2xl text-black">
+              <h5>Our Top Destinations</h5>
             </div>
-        )
+          </div>
+          <div className="carousel-item c-item">
+          <div className='flex flex-wrap justify-center mt-5'>
+            {data.slice(4,8).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+          </div>
+          <div className="carousel-caption d-none d-md-block font-thin text-2xl text-black">
+              <h5>Our Top Destinations</h5>
+            </div>
+          </div>
+          <div className="carousel-item c-item">
+          <div className='flex flex-wrap justify-center mt-5'>
+            {data.slice(8,12).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+          </div>            
+          <div className="carousel-caption d-none d-md-block font-thin text-2xl text-black">
+              <h5>Our Top Destinations</h5>
+            </div>
+          </div>
+        </div>
+        <a className="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="sr-only">Previous</span>
+        </a>
+        <a className="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="sr-only">Next</span>
+        </a>
+      </div>
+      </div>
+  );
 }
-

@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.carousel-caption {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    outline: black;
+    filter: invert(100%);
+}

@@ -1,19 +1,10 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './components/Header'
-import Main from './components/Main'
-import Footer from './components/Footer'
+import { RouterProvider } from 'react-router-dom'
+import router from "./router";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
+    <RouterProvider router={router} />
   )
 }
 
-export default App
+export default App;

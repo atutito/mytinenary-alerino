@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="flex gap-2 justify-content-end border-t-2 pt-3 mt-20">
+    <div className="fixed inset-x-0 bottom-4 flex gap-2 justify-content-end border-t-2 pt-3 pe-3 mx-3">
       <h5>MyTineraries Co. </h5>
       <a href="#!" role="button">
         <svg

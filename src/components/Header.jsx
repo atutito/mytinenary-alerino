@@ -18,12 +18,14 @@ export default function header() {
       <div className='flex flex-col items-start md:flex-row ms-5 top-10 left-2 items-center'>
       <Anchor to={'/Home'} className="align-middle pt-1 font-bold text-l col mx-2 cursor-pointer">Home</Anchor>
       <Anchor to={'/Cities'} className="align-middle pt-1 font-bold text-l col mx-2 cursor-pointer" onClick={()=>setCities(!cities)}>Cities</Anchor>
+      <Anchor to={'/Cities'}>
       <div className="flex px-2 py-0.5 align-middle font-medium text-center text-white hover:text-black font-bold rounded-lg bg-indigo-600 hover:bg-[#5a4b03] hover:invert cursor-pointer hover:translate-y-1 duration-100">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" className="mt-1.5 me-1 w-3 h-3 cursor-pointer">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
           </svg>
         Login
       </div>
+      </Anchor>
     </div>
       </>
       ) : (null)}

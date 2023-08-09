@@ -27,7 +27,7 @@ export default function Carousel() {
     <div className="hidden sm:flex w-4/5 p-2 m-2">
       <div id="hero-carousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
         <div className="carousel-inner">
-        <div className="flex mt-5 justify-center tracking-wider lg:text-5xl text-red-500 md:text-xl font-primary drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)]">
+        <div className="flex md:mt-5 justify-center tracking-wider lg:text-5xl text-red-500 md:text-xl font-primary drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)]">
               <h5>Popular Mytineraries</h5>
             </div>
           <div className="carousel-item active c-item">

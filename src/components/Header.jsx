@@ -24,7 +24,6 @@ export default function header() {
           </svg>
         Login
       </div>
-      </Anchor>
       <img src="./img/user.png" className='ms-2 w-6 h-6 self-center mb-0.5'alt="logo" />
     </div>
       </>

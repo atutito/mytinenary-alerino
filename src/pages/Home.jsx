@@ -3,7 +3,7 @@ import {Link as Anchor} from "react-router-dom"
 
 export default function main() {
   return (
-    <div className="grow flex-col-reverse grow sm:flex md:flex lg:flex-row pt-3 items-center gap-3">
+    <div className="flex-col-reverse mt-5 pt-5 mb-5 pb-5 sm:flex md:flex lg:flex-row items-center gap-3">
           <div className="text-center">
             <h1 className="mb-4 text-xl font-bold tracking-tight leading-none md:text-2xl xl:text-3xl dark:text-white ">Find the perfect destination</h1>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.</p>

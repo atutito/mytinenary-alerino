@@ -1,30 +1,25 @@
 import "/node_modules/bootstrap/dist/js/bootstrap.min.js"
 import "/node_modules/bootstrap/dist/css/bootstrap.min.css"
 import Card from "./Card";
-
-let data = [
-  { id: "america1", city: "Cancun", photo: "/img/america/cancun.jpg" },
-  { id: "america2", city: "New York", photo: "/img/america/newyork.jpg" },
-  { id: "america3", city: "Rio de Janeiro", photo: "/img/america/rioDeJaneiro.jpg" },
-  { id: "america4", city: "Ushuaia", photo: "/img/america/ushuaia.jpg" },
-  { id: "asia1", city: "Bangkok", photo: "/img/asia/bangkok.jpg" },
-  { id: "asia2", city: "Pekin", photo: "/img/asia/pekin.jpg" },
-  { id: "asia3", city: "Singapur", photo: "/img/asia/singapur.jpg" },
-  { id: "asia4", city: "Tokyo", photo: "/img/asia/tokio.jpg" },
-  { id: "europe1", city: "Ibiza", photo: "/img/europe/ibiza.jpg" },
-  { id: "europe2", city: "London", photo: "/img/europe/london.jpg" },
-  { id: "europe3", city: "Paris", photo: "/img/europe/paris.jpg" },
-  { id: "europe4", city: "Roma", photo: "/img/europe/roma.jpg" },
-  { id: "oceania1", city: "Majuro", photo: "/img/oceania/majuro.jpg" },
-  { id: "oceania2", city: "Sidney", photo: "/img/oceania/sidney.jpg" },
-  { id: "oceania3", city: "Suva", photo: "/img/oceania/suva.jpg" },
-  { id: "oceania4", city: "Wellington", photo: "/img/oceania/wellington.jpg" },
-];
-
+import { useState,useEffect,useRef } from 'react'
+import axios from 'axios'
+import apiUrl from '../apiUrl'
 
 export default function Carousel() {
+    const [cities,setCities] = useState([])
+    const [reEffect,setReEffect] = useState(true)
+    const text = useRef()
+    useEffect(
+      ()=> {
+          axios(apiUrl+'cities?city=')
+          .then(res=>setCities(res.data.response))
+          .catch(err=>console.log(err))
+      },[reEffect]
+    )
+    console.log(reEffect)
+
   return (
-    <div className="hidden sm:flex w-4/5 p-2 m-2">
+    <div className="hidden sm:flex w-4/6 p-3 m-3">
       <div id="hero-carousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
         <div className="carousel-inner">
         <div className="flex md:mt-5 justify-center tracking-wider lg:text-5xl text-red-500 md:text-xl font-primary drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)]">
@@ -32,17 +27,17 @@ export default function Carousel() {
             </div>
           <div className="carousel-item active c-item">
           <div className='flex flex-wrap justify-center pt-3'>
-            {data.slice(0,4).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+            {cities.slice(0,4).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
           </div>
           </div>
           <div className="carousel-item c-item">
           <div className='flex flex-wrap justify-center pt-3'>
-            {data.slice(4,8).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+            {cities.slice(4,8).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
           </div>
           </div>
           <div className="carousel-item c-item">
           <div className='flex flex-wrap justify-center pt-3'>
-            {data.slice(8,12).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+            {cities.slice(8,12).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
           </div>            
           </div>
         </div>

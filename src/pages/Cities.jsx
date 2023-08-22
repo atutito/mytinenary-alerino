@@ -10,10 +10,11 @@ export default function Cities() {
 
   useEffect(
     ()=> {
-      axios(apiUrl+'cities?city='+text.current.value)
+      axios(apiUrl+'cities?city='+text.current.value.trim().toLowerCase())
         .then(res=>setCities(res.data.response))
-        .catch(err=>console.log(err))
-    }
+        .catch(err => {
+          setCities([])
+          console.log(err)})},[reEffect]
   )
   function handleFilter() {
     setReEffect(!reEffect) 
@@ -31,7 +32,11 @@ export default function Cities() {
           <input className="my-2 bg-white border h-14 w-50 self-center px-12 rounded-lg hover:cursor-pointer justify-center" ref={text} type="text" name="text" id="text" onKeyUp={handleFilter} placeholder="Look up for your next MyTinerary.."/>
           </div>
     <div className='row'>
-      {cities.map(each=><CardCity key={each._id} src={each.photo} alt={each._id} text={each.city} id={each._id} />)}
+    {cities.length != 0 ?
+                (cities.map(each=><CardCity key={each._id} src={each.photo} alt={each._id} text={each.city} id={each._id} />))
+                :
+                <div className="py-4 tracking-widest text-l sm:text-xl text-black text-shadow shadow-[#525252]">No cities found, please refine your search and try again</div>
+            }
     </div>
     </>
 

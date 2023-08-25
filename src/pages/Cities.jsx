@@ -1,20 +1,20 @@
 import { useState,useEffect,useRef } from 'react'
-import axios, { AxiosError } from 'axios'
-import apiUrl from '../apiUrl'
-import CardCity from "../components/CardCity.jsx";
+import CardCity from '../components/CardCity'
+import { useSelector,useDispatch } from 'react-redux'
+import city_actions from '../store/actions/cities'
+
+const { read_cities } = city_actions
 
 export default function Cities() {
-  const [cities,setCities] = useState([])
+  const cities = useSelector(store=> store.cities.cities)
   const [reEffect,setReEffect] = useState(true)
   const text = useRef()
+  const dispatch = useDispatch()
 
   useEffect(
     ()=> {
-      axios(apiUrl+'cities?city='+text.current.value.trim().toLowerCase())
-        .then(res=>setCities(res.data.response))
-        .catch(err => {
-          setCities([])
-          console.log(err)})},[reEffect]
+      dispatch(read_cities({text:text.current?.value}))
+        },[reEffect]
   )
   function handleFilter() {
     setReEffect(!reEffect) 

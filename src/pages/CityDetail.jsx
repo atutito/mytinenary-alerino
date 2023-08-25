@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import {Link as Anchor} from "react-router-dom"
-import axios from 'axios'
-import apiUrl from '../apiUrl'
+import { useEffect } from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+import city_actions from '../store/actions/cities'
+const { read_city } = city_actions
+import { Link as Anchor } from 'react-router-dom'
 
 export default function CityDetail() {
   const { city_id } = useParams()
-  const [city, setCity] = useState([])
+  const dispatch = useDispatch()
+  const city = useSelector(store=>store.cities.city)
   
   useEffect(
     ()=> {
-      axios(apiUrl+'cities/'+city_id)
-        .then(res=>setCity(res.data.response))
-        .catch(err=>console.log(err))
+      dispatch (read_city({ id: city_id}))
     },[]
   )
 

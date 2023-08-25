@@ -25,7 +25,7 @@ export default function Carousel({ data }) {
       </div>
     </div>
     <a className="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon invert mt-5" aria-hidden="true"></span>
+      <span className="carousel-control-prev-icon invert mt-5" aria-hidden="true"></span>
       <span className="sr-only">Previous</span>
     </a>
     <a className="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">

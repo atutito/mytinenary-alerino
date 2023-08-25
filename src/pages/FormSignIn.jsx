@@ -17,9 +17,9 @@ export default function Form() {
     await axios.post(upiUrl + "users/signup", data);
   }
   return (
-    <div className="flex flex-col items-end h-80 bg-[url(public/img/park-in-lujiazui-financial-center-shanghai-china.jpg)] bg-cover bg-center pt-5 h-1">
-      <div className="bg-white border p-4 gap-2 m-2">
-        <div className="form-group">
+    <div className="flex flex-col items-end bg-[url(public/img/park-in-lujiazui-financial-center-shanghai-china.jpg)] bg-cover bg-center pt-5">
+      <div className="flex flex-col bg-white border p-4 m-3">
+        <div className="form-group my-2">
           <label for="exampleInputEmail1">Email address</label>
           <input
             type="email"
@@ -28,11 +28,11 @@ export default function Form() {
             aria-describedby="emailHelp"
             placeholder="Enter email"
           />
-          <small id="emailHelp" className="form-text text-muted">
+          <small id="emailHelp" className="form-text text-muted text-xs">
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div className="form-group">
+        <div className="form-group my-2">
           <label for="exampleInputPassword1">Password</label>
           <input
             type="password"

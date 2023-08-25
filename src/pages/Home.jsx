@@ -7,10 +7,7 @@ import apiUrl from '../apiUrl.js'
 import { useSelector,useDispatch } from "react-redux";
 import city_actions from '../store/actions/cities'
 
-
 const { read_carousel } = city_actions
-
-
 
 export default function main() {
   const carousel = useSelector(store=>store.cities.carousel)

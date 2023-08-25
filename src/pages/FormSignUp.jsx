@@ -30,9 +30,9 @@ export default function Form() {
     }
   }
   return (
-    <div className="grow items-center h-80 bg-[url(public/img/park-in-lujiazui-financial-center-shanghai-china.jpg)] bg-cover bg-center pt-5 h-1">
-    <div className="flex flex-col w-50 bg-white border p-4 justify-evenly m-2 border">
-      <div class="form-group">
+    <div className="flex place-content-center bg-[url(public/img/park-in-lujiazui-financial-center-shanghai-china.jpg)] bg-cover bg-center p-5">
+    <div className="flex flex-col self-center	w-50 bg-white border p-4 m-2 border">
+      <div className="form-group">
         <label for="name">Name</label>
         <input
           ref={name}
@@ -44,7 +44,7 @@ export default function Form() {
           placeholder="Type Name"
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="lastName">Last Name</label>
         <input
           ref={lastName}
@@ -56,7 +56,7 @@ export default function Form() {
           placeholder="Type Last Name"
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="country">Country</label>
         <input
           ref={country}
@@ -68,7 +68,7 @@ export default function Form() {
           placeholder="Type country"
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="photo">Photo</label>
         <input
           ref={photo}
@@ -80,7 +80,7 @@ export default function Form() {
           placeholder="Type Photo"
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="mail">Email</label>
         <input
           ref={mail}
@@ -92,7 +92,7 @@ export default function Form() {
           placeholder="Type Mail"
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="password">Password</label>
         <input
           ref={password}

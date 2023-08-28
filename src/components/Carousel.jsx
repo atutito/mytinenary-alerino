@@ -10,17 +10,17 @@ export default function Carousel({ data }) {
         </div>
       <div className="carousel-item active c-item">
       <div className='flex flex-wrap justify-center pt-3'>
-        {data.slice(0,4).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+        {data.slice(0,4).map((each,index)=> <Card key={index} src={each.photo} alt={each.id} text={each.city}/>)}
       </div>
       </div>
       <div className="carousel-item c-item">
       <div className='flex flex-wrap justify-center pt-3'>
-        {data.slice(4,8).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+        {data.slice(4,8).map((each,index)=> <Card key={index} src={each.photo} alt={each.id} text={each.city}/>)}
       </div>
       </div>
       <div className="carousel-item c-item">
       <div className='flex flex-wrap justify-center pt-3'>
-        {data.slice(8,12).map(each=> <Card key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+        {data.slice(8,12).map((each,index)=> <Card key={index} src={each.photo} alt={each.id} text={each.city}/>)}
       </div>            
       </div>
     </div>

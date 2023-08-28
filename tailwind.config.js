@@ -5,6 +5,7 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
   mode: 'jit',
   content: [
+    "./node_modules/flowbite/**/*.js",
       './src/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
@@ -21,6 +22,7 @@ module.exports = {
   },
   variants: {},
   plugins: [
+    require('flowbite/plugin'),
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {

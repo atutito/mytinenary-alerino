@@ -4,13 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import city_actions from "../store/actions/cities";
 const { read_city } = city_actions;
 import DetailCity from "../components/DetailCity";
-import { Link as Anchor } from "react-router-dom";
 
 export default function CityDetail() {
   const { city_id } = useParams();
   const dispatch = useDispatch();
   const city = useSelector((store) => store.cities.city);
-  //console.log(city);
+  console.log(city);
   useEffect(() => {
     dispatch(read_city({ id: city_id }));
   }, []);

@@ -2,7 +2,8 @@ import { Link as Anchor } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import itinerary_actions from "../store/actions/itineraries";
-import { FaMoneyBillWave } from "react-icons/fa";
+import { FaMoneyBillWave, FaRegHeart } from "react-icons/fa";
+import { LiaMoneyBillWaveSolid } from "react-icons/lia"
 const { read_itineraries_from_city } = itinerary_actions;
 
 // eslint-disable-next-line react/prop-types
@@ -82,81 +83,98 @@ export default function DetailCity({ src, alt, text, id, sm }) {
         </div>
       </div>
       {show &&
-        itineraries.map((each, index) => (
-          <p key={index}>
-            {
-              <div className="block m-3 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
-                <div
-                  className="relative overflow-hidden bg-cover bg-no-repeat"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                >
-                  <img className="rounded-t-lg" src={each.photo} alt="" />
-                </div>
-                <div className="p-6">
-                  <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                    {each.name}
-                  </h5>
-                  <p className="flex justify-between mb-4 text-base text-neutral-600 dark:text-neutral-200 mt-2">
-                    <div>
-                      <h4 className="font-bold">User</h4>
-                      <img
-                        src="../public/img/userid.png"
-                        className="w-10 h-10 m-1"
-                      ></img>
+        (itineraries.length != 0 ?
+        (itineraries.map((each, index) => (
+        <p key={index}>
+      {<div className="block m-3 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+          <div
+            className="relative overflow-hidden bg-cover bg-no-repeat"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+          >
+            <img className="rounded-t-lg" src={each.photo} alt="" />
+          </div>
+          <div className="p-6">
+            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+              {each.name}
+            </h5>
+            <p className="flex justify-between mb-4 text-base text-neutral-600 dark:text-neutral-200 mt-2">
+              <div>
+                <h4 className="font-bold">User</h4>
+                <img
+                  src="../public/img/userid.png"
+                  className="w-10 h-10 m-1"
+                ></img>
 
-                      <div>{each.city_id.admin_id.name}</div>
-                    </div>
-                    <div>
-                      <h4 className="font-bold">Hashtags</h4>
-                      <div>{each.tags.join(" ")} </div>
-                    </div>
-                    <div>
-                      <h4 className="font-bold">Price</h4>${each.price}
-                      <div className="flex gap-1">
-                        {each.price < 50 ? (
-                          <FaMoneyBillWave />
-                        ) : each.price >= 50 && each.price < 100 ? (
-                          <>
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                          </>
-                        ) : each.price >= 100 && each.price < 150 ? (
-                          <>
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                          </>
-                        ) : each.price >= 150 && each.price < 200 ? (
-                          <>
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                          </>
-                        ) : each.price <= 200 ? (
-                          <>
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                            <FaMoneyBillWave />
-                          </>
-                        ) : (
-                          ""
-                        )}
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-bold">Duration</h4>
-                      {each.duration} min.
-                    </div>
-                  </p>
+                <div>{each.city_id.admin_id.name}</div>
+              </div>
+              <div>
+                <h4 className="flex gap-1">0 <FaRegHeart/></h4>
+              </div>
+              <div>
+                <h4 className="font-bold">Hashtags</h4>
+                <div>{each.tags.join(" ")} </div>
+              </div>
+              <div>
+                <h4 className="font-bold">Price</h4>
+                <div className="flex gap-1">
+                  {each.price < 50 ? (
+                    <>
+                      <FaMoneyBillWave />
+                      <LiaMoneyBillWaveSolid/>
+                      <LiaMoneyBillWaveSolid/>
+                      <LiaMoneyBillWaveSolid/>
+                      <LiaMoneyBillWaveSolid/>
+                    </>    
+                  ) : each.price >= 50 && each.price < 100 ? (
+                    <>
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                      <LiaMoneyBillWaveSolid/>
+                      <LiaMoneyBillWaveSolid/>
+                      <LiaMoneyBillWaveSolid/>
+                    </>
+                  ) : each.price >= 100 && each.price < 150 ? (
+                    <>
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                      <LiaMoneyBillWaveSolid/>
+                      <LiaMoneyBillWaveSolid/>
+                    </>
+                  ) : each.price >= 150 && each.price < 200 ? (
+                    <>
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                      <LiaMoneyBillWaveSolid/>
+                    </>
+                  ) : each.price <= 200 ? (
+                    <>
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                      <FaMoneyBillWave />
+                    </>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
-            }
-          </p>
-        ))}
+              <div>
+                <h4 className="font-bold">Duration</h4>
+                {each.duration} min.
+              </div>
+            </p>
+          </div>
+        </div>
+      }
+    </p>
+  ))) :
+  <div className="py-4 tracking-widest text-l sm:text-xl text-black text-shadow shadow-[#525252]">We're still thinking about what you can do in this city, be patient!</div>
+    )}
     </>
   );
 }

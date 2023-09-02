@@ -16,6 +16,7 @@ export default function DetailCity({ src, alt, text, id, sm }) {
   useEffect(() => {
     dispatch(read_itineraries_from_city({ city_id: id }));
   }, []);
+  console.log(itineraries)
   return (
     <>
       <div className="flex flex-col content-center w-full">
@@ -100,7 +101,7 @@ export default function DetailCity({ src, alt, text, id, sm }) {
               <div>
                 <h4 className="font-bold">User</h4>
                 <img
-                  src="../public/img/userid.png"
+                  src={each.city_id.admin_id.photo}
                   className="w-10 h-10 m-1"
                 ></img>
 

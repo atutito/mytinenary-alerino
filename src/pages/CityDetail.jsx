@@ -9,14 +9,13 @@ export default function CityDetail() {
   const { city_id } = useParams();
   const dispatch = useDispatch();
   const city = useSelector((store) => store.cities.city);
-  console.log(city);
   useEffect(() => {
     dispatch(read_city({ id: city_id }));
   }, []);
   return (
 
 <>
-<article className="flex grow flex-col justify-start items-center mt-[20px]">
+<article className="flex grow flex-col items-center mt-[20px]">
       <DetailCity
         src={city.photo}
         alt={city_id}

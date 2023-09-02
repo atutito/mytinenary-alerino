@@ -12,12 +12,10 @@ export default function DetailCity({ src, alt, text, id, sm }) {
   const itineraries = useSelector(
     (store) => store.itineraries.itineraries_from_city
   );
-  console.log(itineraries);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(read_itineraries_from_city({ city_id: id }));
   }, []);
-  console.log(itineraries);
   return (
     <>
       <div className="flex flex-col content-center w-full">
@@ -25,7 +23,7 @@ export default function DetailCity({ src, alt, text, id, sm }) {
           className="h-80 bg-cover bg-center w-full h-40 text-center pt-5 h-1"
           style={{ backgroundImage: `url(${src})` }}
         >
-          <h5 className="py-4 font-primary tracking-widest text-l sm:text-9xl text-black text-shadow shadow-[#525252]">
+          <h5 className="py-4 font-primary tracking-widest text-6xl md:text-9xl text-black text-shadow shadow-[#525252]">
             {text}
           </h5>
           <div className="btn-holder">

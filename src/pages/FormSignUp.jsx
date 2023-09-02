@@ -31,7 +31,7 @@ export default function Form() {
   }
   return (
     <div className="flex place-content-center bg-[url(public/img/park-in-lujiazui-financial-center-shanghai-china.jpg)] bg-cover bg-center p-5">
-    <div className="flex flex-col self-center	w-50 bg-white border p-4 m-2 border">
+    <div className="flex flex-col self-center	w-50 bg-white border p-4 m-2 border gap-1">
       <div className="form-group">
         <label for="name">Name</label>
         <input
@@ -106,7 +106,7 @@ export default function Form() {
       </div>
       <input
         type="button"
-        className="bg-red-400 text-white text-center cursor-pointer"
+        className="btn float-center border-black bg-red-500 text-black hover:text-white"
         value="Sign Up!"
         onClick={handleSignUp}
       />

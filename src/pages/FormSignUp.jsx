@@ -1,39 +1,62 @@
-import { useRef } from "react";
+import { useRef,useEffect,useState } from "react";
 import axios from "axios";
 import apiUrl from "../apiUrl";
-import { Link as Anchor } from "react-router-dom";
+import { Link as Anchor,useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import user_actions from "../store/actions/users"
+import Swal from "sweetalert2";
+const { read_6_users } = user_actions
 
-export default function Form() {
-  const name = useRef("");
-  const lastName = useRef("");
-  const country = useRef("");
-  const photo = useRef("");
-  const mail = useRef("");
-  const password = useRef("");
-  async function handleSignUp() {
-    try {
-      let data = {
-        name: name.current.value,
-        lastName: lastName.current.value,
-        country: country.current.value,
-        photo: photo.current.value,
-        mail: mail.current.value,
-        password: password.current.value,
-      };
-      await axios.post(
-        apiUrl + "users/signup", 
-        data
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+export default function SignUp() {
+    const navigate = useNavigate()
+    const name = useRef("");
+    const lastName = useRef("");
+    const country = useRef("");
+    const photo = useRef("");
+    const mail = useRef("");
+    const password = useRef("");
+    const [reload,setReload] = useState(false)
+    const dispatch = useDispatch()
+    useEffect(
+      ()=>{dispatch(read_6_users())},
+      [reload]
+    )
+    async function handleSignUp() {
+      try {
+        let data = {
+          name: name.current.value,
+          lastName: lastName.current.value,
+          country: country.current.value,
+          mail: mail.current.value,
+          password: password.current.value,
+        };
+        if (photo.current.value) {
+          data.photo = photo.current.value
+        }
+        await axios.post(
+          apiUrl + "auth/register",
+          data
+        );
+        setReload(!reload)
+        Swal.fire({
+          icon: "success",
+          title: "User registered!",
+          text: "Now log in ;)"
+        });
+        navigate("/auth/signin")
+      } catch (error) {
+        let errorcito = error.response.data.messages 
+        Swal.fire({
+          icon: "error",
+          title: "User NOT registered!",
+          html: errorcito.join('<br>')
+      })
+    }}
   return (
     <div className="flex place-content-center bg-[url(public/img/park-in-lujiazui-financial-center-shanghai-china.jpg)] bg-cover bg-center p-5">
     <div className="flex flex-col self-center	w-50 bg-white border p-4 m-2 border gap-1">
       <div className="form-group">
-        <label for="name">Name</label>
+        <label htmlFor="name">Name</label>
         <input
           ref={name}
           type="text"
@@ -45,7 +68,7 @@ export default function Form() {
         />
       </div>
       <div className="form-group">
-        <label for="lastName">Last Name</label>
+        <label htmlFor="lastName">Last Name</label>
         <input
           ref={lastName}
           type="text"
@@ -57,7 +80,7 @@ export default function Form() {
         />
       </div>
       <div className="form-group">
-        <label for="country">Country</label>
+        <label htmlFor="country">Country</label>
         <input
           ref={country}
           type="text"
@@ -69,7 +92,7 @@ export default function Form() {
         />
       </div>
       <div className="form-group">
-        <label for="photo">Photo</label>
+        <label htmlFor="photo">Photo</label>
         <input
           ref={photo}
           type="text"
@@ -81,7 +104,7 @@ export default function Form() {
         />
       </div>
       <div className="form-group">
-        <label for="mail">Email</label>
+        <label htmlFor="mail">Email</label>
         <input
           ref={mail}
           type="text"
@@ -93,7 +116,7 @@ export default function Form() {
         />
       </div>
       <div className="form-group">
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
           ref={password}
           type="password"
@@ -121,5 +144,4 @@ export default function Form() {
       </p>
       </div>
       </div>
-  );
-}
+  )}

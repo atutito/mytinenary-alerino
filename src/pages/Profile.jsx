@@ -69,15 +69,19 @@ export default function Profile() {
             defaultValue=""
             placeholder="Type Last Name"
           />
-          <input
-            ref={country}
-            type="text"
-            className="text-center mb-[10px] bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-            name="country"
-            id="country"
-            defaultValue=""
-            placeholder="Type Country"
-          />
+          <select ref={country} id="country" className="text-center mb-[10px] bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight">
+              <option selected>Choose a country</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Brazil">Brazil</option>
+              <option value="Canada">Canada</option>
+              <option value="France">France</option>
+              <option value="Germany">Germany</option>
+              <option value="Italy">Italy</option>
+              <option value="Japan">Japan</option>
+              <option value="Mexico">Mexico</option>
+              <option value="United States">United States</option>
+          </select>
           <input
             ref={photo}
             type="text"

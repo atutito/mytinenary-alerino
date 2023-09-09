@@ -60,7 +60,7 @@ export default function SignUp() {
         <input
           ref={name}
           type="text"
-          className="form-control"
+          className="form-control rounded-lg border border-black"
           name="name"
           id="name"
           defaultValue=""
@@ -72,7 +72,7 @@ export default function SignUp() {
         <input
           ref={lastName}
           type="text"
-          className="form-control"
+          className="form-control rounded-lg border border-black"
           name="lastName"
           id="lastName"
           defaultValue=""
@@ -80,23 +80,30 @@ export default function SignUp() {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="country">Country</label>
-        <input
-          ref={country}
-          type="text"
-          className="form-control"
-          name="country"
-          id="country"
-          defaultValue=""
-          placeholder="Type country"
-        />
+        
+        
+<label htmlFor="country">Country</label>
+<select ref={country} id="country" className="border border-black rounded-lg block w-full p-2.5">
+  <option selected>Choose a country</option>
+  <option value="Argentina">Argentina</option>
+  <option value="Bolivia">Bolivia</option>
+  <option value="Brazil">Brazil</option>
+  <option value="Canada">Canada</option>
+  <option value="France">France</option>
+  <option value="Germany">Germany</option>
+  <option value="Italy">Italy</option>
+  <option value="Japan">Japan</option>
+  <option value="Mexico">Mexico</option>
+  <option value="United States">United States</option>
+</select>
+
       </div>
       <div className="form-group">
         <label htmlFor="photo">Photo</label>
         <input
           ref={photo}
           type="text"
-          className="form-control"
+          className="form-control rounded-lg border border-black"
           name="photo"
           id="photo"
           defaultValue=""
@@ -108,7 +115,7 @@ export default function SignUp() {
         <input
           ref={mail}
           type="text"
-          className="form-control"
+          className="form-control rounded-lg border border-black"
           name="mail"
           id="mail"
           defaultValue=""
@@ -120,7 +127,7 @@ export default function SignUp() {
         <input
           ref={password}
           type="password"
-          className="form-control"
+          className="form-control rounded-lg border border-black"
           name="password"
           id="password"
           defaultValue=""

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import itinerary_actions from "../store/actions/itineraries";
 import { FaMoneyBillWave, FaRegHeart } from "react-icons/fa";
 import { LiaMoneyBillWaveSolid } from "react-icons/lia"
+import Activity from "./Activity.jsx"
 const { read_itineraries_from_city } = itinerary_actions;
 
 // eslint-disable-next-line react/prop-types
@@ -47,13 +48,13 @@ export default function DetailCity({ src, alt, text, id, sm }) {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M4.5 15.75l7.5-7.5 7.5 7.5"
                     />
                   </svg>
@@ -65,13 +66,13 @@ export default function DetailCity({ src, alt, text, id, sm }) {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                     />
                   </svg>
@@ -84,14 +85,14 @@ export default function DetailCity({ src, alt, text, id, sm }) {
       {show &&
         (itineraries.length != 0 ?
         (itineraries.map((each, index) => (
-        <p key={index}>
-      {<div className="block m-3 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        <div key={index}>
+      {<div className="block content-center m-3 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
           <div
-            className="relative overflow-hidden bg-cover bg-no-repeat"
+            className="flex overflow-hidden justify-content-center"
             data-te-ripple-init
             data-te-ripple-color="light"
           >
-            <img className="rounded-t-lg" src={each.photo} alt="" />
+            <img className="rounded-t-lg p-2" src={each.photo} alt="" />
           </div>
           <div className="p-6">
             <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
@@ -168,9 +169,16 @@ export default function DetailCity({ src, alt, text, id, sm }) {
               </div>
             </p>
           </div>
+          <h5 className="m-3 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 pb-2 border-b-2">
+Activities            </h5>          <article className="flex justify-center mt-[20px]">
+      <Activity
+      id={each._id}
+      />
+    </article>
+
         </div>
       }
-    </p>
+    </div>
   ))) :
   <div className="py-4 tracking-widest text-l sm:text-xl text-black text-shadow shadow-[#525252]">We're still thinking about what you can do in this city, be patient!</div>
     )}

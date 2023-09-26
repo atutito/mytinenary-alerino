@@ -5,10 +5,11 @@ import itinerary_actions from "../store/actions/itineraries";
 import { FaMoneyBillWave, FaRegHeart } from "react-icons/fa";
 import { LiaMoneyBillWaveSolid } from "react-icons/lia"
 import Activity from "./Activity.jsx"
+import Like from "./Like.jsx";
 const { read_itineraries_from_city } = itinerary_actions;
 
-// eslint-disable-next-line react/prop-types
 export default function DetailCity({ src, alt, text, id, sm }) {
+  
   const [show, setShow] = useState(false);
   const itineraries = useSelector(
     (store) => store.itineraries.itineraries_from_city
@@ -17,7 +18,11 @@ export default function DetailCity({ src, alt, text, id, sm }) {
   useEffect(() => {
     dispatch(read_itineraries_from_city({ city_id: id }));
   }, []);
-  console.log(itineraries)
+
+  
+  
+
+
   return (
     <>
       <div className="flex flex-col content-center w-full">
@@ -109,7 +114,9 @@ export default function DetailCity({ src, alt, text, id, sm }) {
                 <div>{each.city_id.admin_id.name}</div>
               </div>
               <div>
-                <h4 className="flex gap-1">0 <FaRegHeart/></h4>
+
+              <Like id={each._id}/>
+          
               </div>
               <div>
                 <h4 className="font-bold">Hashtags</h4>

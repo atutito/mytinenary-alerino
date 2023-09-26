@@ -5,7 +5,6 @@ import apiUrl from "../../apiUrl";
 const read_activities_from_itinerary = createAsyncThunk(
     'read_activities_from_itinerary',
     async(obj)=> {
-        console.log(obj)
         try {
             let data = await axios(apiUrl+'activities?itinerary_id='+obj.name)
             return {

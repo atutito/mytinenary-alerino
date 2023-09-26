@@ -1,0 +1,39 @@
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import like_actions from "../store/actions/likes";
+const { already_liked,read_likes,like_dislike } = like_actions
+
+
+export default function Like (id) {
+    const user = useSelector(store=>store.users?.user);
+
+    const [isLiked,setIsLiked] = useState();
+    const [totalLikes,setTotalLikes] = useState()
+    const dispatch = useDispatch();
+    function likeDislike(){
+        dispatch(like_dislike({itinerary_id: id.id}));
+        setIsLiked(!isLiked)
+      }
+      console.log(id)
+      useEffect(
+        ()=>{
+          user.name&&dispatch(already_liked( {itinerary_id: id.id} ))
+          .then(response => setIsLiked(response.payload.isLiked))
+          .catch(err => console.log(err));
+          dispatch(read_likes( id.id ))
+          .then(response => setTotalLikes(response.payload.countLikes))
+          .catch(err => console.log(err));
+        },[isLiked]
+        );
+      
+return(
+    <>
+<svg onClick={likeDislike} className="w-6 h-6 inline cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill={isLiked?"#DC143C":"none"} viewBox="0 0 24 24" strokeWidth={0.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          <span> {totalLikes} </span>
+
+          </>
+
+)
+}

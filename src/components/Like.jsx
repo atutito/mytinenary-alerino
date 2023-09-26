@@ -14,7 +14,6 @@ export default function Like (id) {
         dispatch(like_dislike({itinerary_id: id.id}));
         setIsLiked(!isLiked)
       }
-      console.log(id)
       useEffect(
         ()=>{
           user.name&&dispatch(already_liked( {itinerary_id: id.id} ))

@@ -103,7 +103,7 @@ export default function DetailCity({ src, alt, text, id, sm }) {
             <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
               {each.name}
             </h5>
-            <p className="flex justify-between mb-4 text-base text-neutral-600 dark:text-neutral-200 mt-2">
+            <div className="flex justify-between mb-4 text-base text-neutral-600 dark:text-neutral-200 mt-2">
               <div>
                 <h4 className="font-bold">User</h4>
                 <img
@@ -174,7 +174,7 @@ export default function DetailCity({ src, alt, text, id, sm }) {
                 <h4 className="font-bold">Duration</h4>
                 {each.duration} min.
               </div>
-            </p>
+            </div>
           </div>
           <h5 className="m-3 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 pb-2 border-b-2">
 Activities            </h5>          <article className="flex justify-center mt-[20px]">
